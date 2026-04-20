@@ -29,6 +29,12 @@ Cursor pulls from the [Open VSX Registry](https://open-vsx.org/extension/flancas
 Same flow — or grab it from the
 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-snake).
 
+### Latest release VSIX
+
+You can always grab the latest `.vsix` directly from
+[**GitHub Releases**](https://github.com/flancast90/cursor-snake/releases/latest),
+then in Cursor / VS Code run **Extensions: Install from VSIX…** and pick it.
+
 ### From source
 
 ```bash

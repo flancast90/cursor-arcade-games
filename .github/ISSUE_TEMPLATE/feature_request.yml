@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest an idea for Snake.
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: What's the idea?
+      description: A short description of what you'd like to see.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why?
+      description: What problem does it solve or what experience does it add?
+  - type: dropdown
+    attributes:
+      label: Area
+      options:
+        - New mode
+        - Settings / options
+        - Rendering / visuals
+        - Input / controls
+        - Performance
+        - Documentation
+        - Other

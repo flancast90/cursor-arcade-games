@@ -1,0 +1,32 @@
+name: Bug report
+description: Something is broken in Snake.
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: What did you see vs. what did you expect?
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open Snake: Play  2. Pick Portal mode  3. …"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Editor + version
+      placeholder: "Cursor 0.x on macOS 15, or VS Code 1.x on Linux"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Extension version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Settings used
+      description: Mode, speed, board size, apples, theme — if relevant.
