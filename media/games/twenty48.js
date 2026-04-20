@@ -249,20 +249,36 @@
       // Create/update tiles
       for (const [id, t] of desired.entries()) {
         let el = this.tileMap.get(id);
-        if (!el) {
+        const tx = t.c * (cellSide + gap) + padding;
+        const ty = t.r * (cellSide + gap) + padding;
+        const isFresh = !el;
+        if (isFresh) {
           el = document.createElement('div');
           el.className = 'twenty48-tile';
+          // Seed position before insertion so the tile never flashes at (0,0).
+          el.style.setProperty('--tx', tx + 'px');
+          el.style.setProperty('--ty', ty + 'px');
           this.board.appendChild(el);
           this.tileMap.set(id, el);
+        } else {
+          el.style.setProperty('--tx', tx + 'px');
+          el.style.setProperty('--ty', ty + 'px');
         }
         el.style.width = cellSide + 'px';
         el.style.height = cellSide + 'px';
         el.style.fontSize = Math.max(14, Math.floor(cellSide / 2.8)) + 'px';
-        el.style.transform = `translate(${t.c * (cellSide + gap) + padding}px, ${t.r * (cellSide + gap) + padding}px)`;
         el.dataset.v = String(t.value);
         el.textContent = String(t.value);
-        el.classList.toggle('new', !!t.isNew);
-        el.classList.toggle('merged', !!t.merged);
+        // Restart the animation cleanly on each render so CSS sees the class transition.
+        el.classList.remove('new', 'merged');
+        if (t.isNew) {
+          void el.offsetWidth;
+          el.classList.add('new');
+        }
+        if (t.merged) {
+          void el.offsetWidth;
+          el.classList.add('merged');
+        }
       }
     }
 

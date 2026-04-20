@@ -244,7 +244,7 @@
       if (ateIdx >= 0) {
         this.apples.splice(ateIdx, 1);
         this.score += 10;
-        this.growBy += this.mode === 'cheese' ? 1 : 0;
+        this.growBy += this.mode === 'cheese' ? 2 : 1;
         this.spawnApple();
       }
       if (this.growBy > 0) {

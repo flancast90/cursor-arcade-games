@@ -56,6 +56,30 @@
 
   const TYPES = Object.keys(SHAPES);
 
+  // SRS wall-kick data (https://tetris.wiki/Super_Rotation_System).
+  // Keyed by "<fromRot><toRot>": list of [dx, dy] offsets to try in order.
+  // dy is positive-down in our grid (wiki uses positive-up), so signs are flipped.
+  const KICKS_JLSTZ = {
+    '01': [[0, 0], [-1, 0], [-1, -1], [0, 2], [-1, 2]],
+    '10': [[0, 0], [1, 0], [1, 1], [0, -2], [1, -2]],
+    '12': [[0, 0], [1, 0], [1, 1], [0, -2], [1, -2]],
+    '21': [[0, 0], [-1, 0], [-1, -1], [0, 2], [-1, 2]],
+    '23': [[0, 0], [1, 0], [1, -1], [0, 2], [1, 2]],
+    '32': [[0, 0], [-1, 0], [-1, 1], [0, -2], [-1, -2]],
+    '30': [[0, 0], [-1, 0], [-1, 1], [0, -2], [-1, -2]],
+    '03': [[0, 0], [1, 0], [1, -1], [0, 2], [1, 2]],
+  };
+  const KICKS_I = {
+    '01': [[0, 0], [-2, 0], [1, 0], [-2, 1], [1, -2]],
+    '10': [[0, 0], [2, 0], [-1, 0], [2, -1], [-1, 2]],
+    '12': [[0, 0], [-1, 0], [2, 0], [-1, -2], [2, 1]],
+    '21': [[0, 0], [1, 0], [-2, 0], [1, 2], [-2, -1]],
+    '23': [[0, 0], [2, 0], [-1, 0], [2, -1], [-1, 2]],
+    '32': [[0, 0], [-2, 0], [1, 0], [-2, 1], [1, -2]],
+    '30': [[0, 0], [1, 0], [-2, 0], [1, 2], [-2, -1]],
+    '03': [[0, 0], [-1, 0], [2, 0], [-1, -2], [2, 1]],
+  };
+
   // Standard Tetris scoring for lines
   const LINE_SCORES = [0, 100, 300, 500, 800];
 
@@ -103,6 +127,15 @@
         <div>
           <div style="text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">Hold</div>
           <canvas id="bl-hold" width="120" height="120" style="border:1px solid var(--line-strong);border-radius:4px;"></canvas>
+        </div>
+        <div style="line-height:1.6;">
+          <div style="text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;color:var(--fg-soft);">Controls</div>
+          <div>← →&nbsp;&nbsp;move</div>
+          <div>↓&nbsp;&nbsp;soft drop</div>
+          <div>↑ / W / X&nbsp;&nbsp;rotate</div>
+          <div>Z / Q&nbsp;&nbsp;rotate CCW</div>
+          <div>Space&nbsp;&nbsp;hard drop</div>
+          <div>C / Shift&nbsp;&nbsp;hold</div>
         </div>`;
       this.wrap.appendChild(this.side);
       host.appendChild(this.wrap);
@@ -200,12 +233,17 @@
 
     tryRotate(dir) {
       if (this.dead || this.paused || !this.current) return false;
-      const newRot = (this.current.rot + dir + 4) % 4;
-      // Basic wall-kick: try offsets 0, ±1, ±2
-      const kicks = [0, -1, 1, -2, 2];
-      for (const k of kicks) {
-        if (!this.collides(this.current, k, 0, newRot)) {
-          this.current.x += k;
+      const type = this.current.type;
+      if (type === 'O') return false; // O doesn't rotate
+      const fromRot = this.current.rot;
+      const newRot = (fromRot + dir + 4) % 4;
+      const key = '' + fromRot + newRot;
+      const table = type === 'I' ? KICKS_I : KICKS_JLSTZ;
+      const kicks = table[key] || [[0, 0]];
+      for (const [dx, dy] of kicks) {
+        if (!this.collides(this.current, dx, dy, newRot)) {
+          this.current.x += dx;
+          this.current.y += dy;
           this.current.rot = newRot;
           this.lockDelay = 0;
           return true;
@@ -322,6 +360,8 @@
           e.preventDefault();
           break;
         case 'ArrowUp':
+        case 'w':
+        case 'W':
         case 'x':
         case 'X':
           this.tryRotate(1);
@@ -329,6 +369,8 @@
           break;
         case 'z':
         case 'Z':
+        case 'q':
+        case 'Q':
           this.tryRotate(-1);
           e.preventDefault();
           break;

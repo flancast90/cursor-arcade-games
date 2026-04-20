@@ -516,7 +516,11 @@ kbd {
 }
 
 .twenty48-tile {
+  --tx: 0px;
+  --ty: 0px;
   position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -525,6 +529,7 @@ kbd {
   background: var(--fg);
   color: var(--bg);
   border-radius: var(--radius-sm);
+  transform: translate(var(--tx), var(--ty));
   transition: transform 110ms ease, background 120ms ease, color 120ms ease;
   will-change: transform;
 }
@@ -574,22 +579,22 @@ kbd {
 
 @keyframes pop {
   from {
-    transform: scale(0);
+    transform: translate(var(--tx), var(--ty)) scale(0);
   }
   to {
-    transform: scale(1);
+    transform: translate(var(--tx), var(--ty)) scale(1);
   }
 }
 
 @keyframes merge {
   0% {
-    transform: scale(1);
+    transform: translate(var(--tx), var(--ty)) scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: translate(var(--tx), var(--ty)) scale(1.12);
   }
   100% {
-    transform: scale(1);
+    transform: translate(var(--tx), var(--ty)) scale(1);
   }
 }
 
