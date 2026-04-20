@@ -7,9 +7,9 @@ Snake. 2048. Blocks. Minesweeper.
 Monochrome. Keyboard-first. Zero dependencies. One keystroke away.
 
 <p>
-  <a href="https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-arcade-games"><img alt="Visual Studio Marketplace Version" src="https://img.shields.io/visual-studio-marketplace/v/flancast90.cursor-arcade-games?color=000&label=VS%20Code&style=flat-square"></a>
-  <a href="https://open-vsx.org/extension/flancast90/cursor-arcade-games"><img alt="Open VSX Version" src="https://img.shields.io/open-vsx/v/flancast90/cursor-arcade-games?color=000&label=Open%20VSX&style=flat-square"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-arcade-games"><img alt="Installs" src="https://img.shields.io/visual-studio-marketplace/i/flancast90.cursor-arcade-games?color=000&label=installs&style=flat-square"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-snake"><img alt="Visual Studio Marketplace Version" src="https://img.shields.io/visual-studio-marketplace/v/flancast90.cursor-snake?color=000&label=VS%20Code&style=flat-square"></a>
+  <a href="https://open-vsx.org/extension/flancast90/cursor-snake"><img alt="Open VSX Version" src="https://img.shields.io/open-vsx/v/flancast90/cursor-snake?color=000&label=Open%20VSX&style=flat-square"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-snake"><img alt="Installs" src="https://img.shields.io/visual-studio-marketplace/i/flancast90.cursor-snake?color=000&label=installs&style=flat-square"></a>
   <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/flancast90/cursor-arcade-games?color=000&style=flat-square"></a>
   <a href="https://github.com/flancast90/cursor-arcade-games/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/flancast90/cursor-arcade-games?color=000&style=flat-square"></a>
 </p>
@@ -43,8 +43,8 @@ Each game tracks a persistent high score. Every game is keyboard-native. Every g
 
 ### From the marketplace
 
-- **VS Code / VSCodium** — [install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-arcade-games) or search *Cursor Arcade* in the Extensions pane.
-- **Cursor / other OSS VS Code forks** — [install from Open VSX](https://open-vsx.org/extension/flancast90/cursor-arcade-games) or search *Cursor Arcade* in Cursor's Extensions pane.
+- **VS Code / VSCodium** — [install from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=flancast90.cursor-snake) or search *Cursor Arcade* in the Extensions pane.
+- **Cursor / other OSS VS Code forks** — [install from Open VSX](https://open-vsx.org/extension/flancast90/cursor-snake) or search *Cursor Arcade* in Cursor's Extensions pane.
 
 ### Manual (VSIX)
 
