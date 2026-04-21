@@ -5,7 +5,7 @@
   const R = (window.CursorArcade = window.CursorArcade || {});
   R.games = R.games || {};
 
-  const GAME_ORDER = ['snake', 'twenty48', 'blocks', 'sweeper', 'soccer'];
+  const GAME_ORDER = ['snake', 'twenty48', 'blocks', 'sweeper', 'soccer', 'capitalist'];
   const GAME_META = {
     snake: {
       id: 'snake',
@@ -36,6 +36,12 @@
       name: 'Head Soccer',
       tagline: 'Two heads. One ball. Power-ups. Hotseat or CPU.',
       hsKey: 'soccer:goals-1p',
+    },
+    capitalist: {
+      id: 'capitalist',
+      name: 'Capitalist',
+      tagline: 'Build an empire from a lemonade stand to Mars.',
+      hsKey: 'capitalist',
     },
   };
 
@@ -208,6 +214,12 @@
           <path d="M6 38 L42 38" />
           <path d="M8 38 L8 28 L14 28 L14 38" />
           <path d="M40 38 L40 28 L34 28 L34 38" />
+        </svg>`;
+      case 'capitalist':
+        return `<svg width="48" height="48" viewBox="0 0 48 48" ${s}>
+          <path d="M8 40 L8 18 M16 40 L16 12 M24 40 L24 22 M32 40 L32 8 M40 40 L40 16" />
+          <path d="M6 40 L42 40" />
+          <circle cx="34" cy="12" r="3" fill="currentColor" stroke="none" />
         </svg>`;
     }
     return '';

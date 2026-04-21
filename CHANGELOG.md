@@ -3,6 +3,26 @@
 All notable changes to this project are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.4.0] - 2026-04-19
+
+This release adds **Capitalist**, a deep idle-tycoon game inspired by Hyper Hippo's *AdVenture Capitalist* (2014).
+
+### Added
+- **Capitalist** — a full-featured idle clicker with three planets (Earth, Moon, Mars), ten businesses each, managers, cash upgrades, angel upgrades, milestones, and angel-investor prestige.
+- **30 businesses** across three planets with individual coefficients, base revenues, and cycle times faithfully modelled on the official AdCap wiki (Lemonade Stand → Oil Company, Moon Shoes → Giant Laser, Red Dirt → Terrorformer).
+- **~100 cash upgrades** and **~25 angel upgrades** with per-business and all-business profit multipliers, plus angel-effectiveness bonuses.
+- **Business milestones** at 25 / 50 / 100 / 200 / 300 / 400 owned halve cycle time *and* multiply revenue (×3 / ×3 / ×3 / ×2 / ×2 / ×2). When every business on the planet crosses a threshold, *every* business gets another halving, capping at 12 total halvings per business (1/4096 of the base time).
+- **Angel investor prestige** — reset to earn `floor(150 · √(lifetime / 1e15))` new angels, each granting a permanent +2% profit boost (stacks with angel-effectiveness upgrades).
+- **Offline earnings** up to 12 hours at 25% efficiency, applied on reopen.
+- **Managers** automate any owned business once hired.
+- **Buy quantities**: x1 / x10 / x100 / xMax with geometric cost summation.
+- **Number formatting** with full short-suffix scale (K, M, B, T, qa, Qa, … Ce) so late-game values stay legible.
+- **Autosave every 10 seconds** to VS Code `globalState`.
+
+### Changed
+- Menu hero copy now advertises six games instead of five.
+- Added `idle`, `idle-game`, `tycoon`, `clicker`, `adventure-capitalist`, `capitalist` keywords for marketplace discovery.
+
 ## [0.3.0] - 2026-04-19
 
 This release adds the Arcade's first multiplayer game: **Head Soccer**.
