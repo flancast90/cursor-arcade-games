@@ -1,8 +1,8 @@
 {
   "name": "cursor-snake",
   "displayName": "Monochrome Arcade",
-  "description": "A monochrome arcade collection for VS Code and Cursor — Snake, 2048, Blocks, Minesweeper. Four minimalist classics, zero dependencies, keyboard-first.",
-  "version": "0.2.5",
+  "description": "A monochrome arcade collection for VS Code and Cursor — Snake, 2048, Blocks, Minesweeper, and 2-player Head Soccer. Five minimalist classics, zero dependencies, keyboard-first.",
+  "version": "0.3.0",
   "publisher": "flancast90",
   "license": "MIT",
   "author": {
@@ -34,6 +34,10 @@
     "tetris",
     "blocks",
     "minesweeper",
+    "soccer",
+    "head-soccer",
+    "multiplayer",
+    "2-player",
     "arcade",
     "game",
     "games",
@@ -73,6 +77,11 @@
       {
         "command": "cursor-arcade.sweeper",
         "title": "Play Minesweeper",
+        "category": "Arcade"
+      },
+      {
+        "command": "cursor-arcade.soccer",
+        "title": "Play Head Soccer (1P / 2P)",
         "category": "Arcade"
       },
       {

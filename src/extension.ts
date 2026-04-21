@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 const STORAGE_KEY = 'cursorArcade.v1';
 
-type GameId = 'snake' | 'twenty48' | 'blocks' | 'sweeper';
+type GameId = 'snake' | 'twenty48' | 'blocks' | 'sweeper' | 'soccer';
 
 interface ArcadeStorage {
   highScores: Record<string, number>;
@@ -22,6 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
     ['cursor-arcade.twenty48', () => open({ game: 'twenty48' })],
     ['cursor-arcade.blocks', () => open({ game: 'blocks' })],
     ['cursor-arcade.sweeper', () => open({ game: 'sweeper' })],
+    ['cursor-arcade.soccer', () => open({ game: 'soccer' })],
     ['cursor-arcade.dailyChallenge', () => open({ game: 'snake', daily: true })],
   ];
 
@@ -191,6 +192,9 @@ class ArcadePanel {
     const sweeperUri = webview.asWebviewUri(
       vscode.Uri.file(path.join(mediaPath, 'games', 'sweeper.js')),
     );
+    const soccerUri = webview.asWebviewUri(
+      vscode.Uri.file(path.join(mediaPath, 'games', 'soccer.js')),
+    );
 
     const nonce = makeNonce();
     const csp =
@@ -210,7 +214,8 @@ class ArcadePanel {
       .replace(/{{snakeUri}}/g, snakeUri.toString())
       .replace(/{{twenty48Uri}}/g, twenty48Uri.toString())
       .replace(/{{blocksUri}}/g, blocksUri.toString())
-      .replace(/{{sweeperUri}}/g, sweeperUri.toString());
+      .replace(/{{sweeperUri}}/g, sweeperUri.toString())
+      .replace(/{{soccerUri}}/g, soccerUri.toString());
 
     return html;
   }

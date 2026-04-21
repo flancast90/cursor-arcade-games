@@ -3,6 +3,21 @@
 All notable changes to this project are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.0] - 2026-04-19
+
+This release adds the Arcade's first multiplayer game: **Head Soccer**.
+
+### Added
+- **Head Soccer** — 1P vs CPU or hotseat 2P. Two big-headed characters, one small ball, custom 2D physics with gravity/elasticity/collision. Ground kicks, air kicks, jumps, and a chargeable power shot.
+- **Power-ups** drop into the field mid-match: **Fire** (next kick is a ripping shot that burns through defenders), **Ice** (next kick freezes the opponent on contact), **Giant** (head grows and gains more reach), **Multiball** (extra balls spawned for extra chaos).
+- Match formats: configurable goals-to-win (1/3/5) and match-timer length (60/90/120s). First to the goal target or most goals when time runs out.
+- Reactive CPU AI that chases, jumps, kicks, and uses power shots.
+- In-browser self-test harness at `test/soccer-harness.html` for physics/kick/power-up regression testing (dev-only).
+
+### Changed
+- Menu hero copy now advertises five games instead of four.
+- Added `soccer`, `head-soccer`, `multiplayer`, `2-player` keywords for marketplace discovery.
+
 ## [0.2.2] - 2026-04-19
 
 ### Changed
